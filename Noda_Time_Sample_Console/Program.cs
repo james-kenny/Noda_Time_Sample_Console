@@ -31,7 +31,7 @@ namespace Noda_Time_Sample_Console
       string easternZoneId = "Eastern Standard Time";
 
       // The date they want to schedule the delivery.
-      var userScheduledTime = new DateTime(2018, 12, 03, 10, 46, 00);
+      var userScheduledTime = new DateTime(2019, 12, 03, 10, 46, 00);
 
       // Load the NodaTimeZone information for the users timezone
       TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById(easternZoneId);
@@ -40,8 +40,16 @@ namespace Noda_Time_Sample_Console
       // Convert the Date Time to UTC
       var utcTime = TimeZoneInfo.ConvertTimeToUtc(userScheduledTime, easternZone);
 
-      Console.WriteLine("The date and time are " + utcTime + " UTC " + userScheduledTime + " " + easternZone.DisplayName);
+      Console.WriteLine("The date and time are " + utcTime + " UTC : " + userScheduledTime + " " + easternZone.DisplayName);
 
+      Console.WriteLine("------------------------");
+      Console.WriteLine("Get the users time now!");
+
+      DateTime dNow = DateTime.Now.ToUniversalTime();
+
+      var userNowTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dNow, easternZoneId);
+
+      Console.WriteLine("The date and time now " + dNow + " UTC :  " + userNowTime + " " + easternZone.DisplayName);
 
 
 
