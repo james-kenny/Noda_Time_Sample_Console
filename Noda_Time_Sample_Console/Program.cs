@@ -21,6 +21,7 @@ namespace Noda_Time_Sample_Console
         Console.WriteLine("TimeZone: " + oTimeZone.DisplayName + " Id: " + oTimeZone.Id);
       }
 
+      string easternZoneId = "Eastern Standard Time";
 
 
       Console.WriteLine("Complete");
